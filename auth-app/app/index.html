@@ -23,7 +23,7 @@
     
   </head>
 
-    <body ng-app="starterApp" layout="row" ng-cloak>
+    <body ng-app="starterApp" layout="row" ng-controller="UserController as ul" ng-cloak>
 
         <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
                     md-component-id="left"
@@ -36,9 +36,10 @@
 
             <md-list>
                 <md-list-item>
-                    <md-button  ui-sref="login"   ng-class="{'selected' : it === ul.selected }">
-                        <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-                        {{it.name}}
+                    <md-button  ui-sref="login"  >
+                        <md-icon md-svg-icon="share" class="avatar"></md-icon>
+                        
+                        Login
                     </md-button>
                 </md-list-item>
             </md-list>
@@ -49,7 +50,7 @@
         <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
             <md-toolbar layout="row" class="md-whiteframe-z1">
-                <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+                <md-button id="main" class="menu selected" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
                     <md-icon md-svg-icon="menu"></md-icon>
                 </md-button>
                 <h3>Domain - Auth 0</h3>
@@ -101,11 +102,11 @@
                     $stateProvider
                         .state('login', {
                             url: "/login",
-                            templateUrl: "login/login.html"
+                            templateUrl: "./src/login/login.html"
                         })
                         .state('user', {
                             url: "/user",
-                            templateUrl: "user/user.html",
+                            templateUrl: "./src/user/user.html",
                             controller: function($scope) {
                                 $scope.items = ["A", "List", "Of", "Items"];
                             }
@@ -121,6 +122,7 @@
                         .icon("twitter", "./assets/svg/twitter.svg", 512)
                         .icon("phone", "./assets/svg/phone.svg", 512);
 
+               
                     $mdThemingProvider.theme('default')
                         .primaryPalette('green');
                     //.accentPalette('red');
