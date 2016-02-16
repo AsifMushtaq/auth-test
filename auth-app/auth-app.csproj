@@ -269,11 +269,13 @@
     <Content Include="app\assets\svg\twitter.svg" />
     <Content Include="app\index.html" />
     <Content Include="app\src\login\login.html" />
+    <Content Include="app\src\login\login.js" />
     <Content Include="app\src\users\UserController.js" />
     <Content Include="app\src\users\Users.js" />
     <Content Include="app\src\users\UserService.js" />
     <Content Include="app\src\users\view\contactSheet.html" />
     <Content Include="app\src\user\user.html" />
+    <Content Include="app\src\user\user.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

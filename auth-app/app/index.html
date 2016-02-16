@@ -72,23 +72,25 @@
         <script src="./src/users/Users.js"></script>
         <script src="./src/users/UserController.js"></script>
         <script src="./src/users/UserService.js"></script>
+        <script src="./src/login/login.js"></script>
+        <script src="./src/user/user.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
         <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
 
         <script type="text/javascript">
             //var myFirebaseRef = new Firebase("https://domain-auth.firebaseio.com/");
-            //myFirebaseRef.set({
-            //    title: "Hello World!",
-            //    author: "Firebase",
-            //    location: {
-            //        city: "San Francisco",
-            //        state: "California",
-            //        zip: 94103
-            //    }
-            //});
+            ////myFirebaseRef.set({
+            ////    title: "Hello World!",
+            ////    author: "Firebase",
+            ////    location: {
+            ////        city: "San Francisco",
+            ////        state: "California",
+            ////        zip: 94103
+            ////    }
+            ////});
 
-            //myFirebaseRef.child("domain-auth/verification_key").on("value", function (snapshot) {
+            //myFirebaseRef.child("verify/verification_key").on("value", function (snapshot) {
             //    alert(snapshot.val());  // Alerts "San Francisco"
             //});
 
@@ -106,10 +108,7 @@
                         })
                         .state('user', {
                             url: "/user",
-                            templateUrl: "./src/user/user.html",
-                            controller: function($scope) {
-                                $scope.items = ["A", "List", "Of", "Items"];
-                            }
+                            templateUrl: "./src/user/user.html"
                         });
                      
 

@@ -86,3 +86,4 @@ C:\Users\asif.mushtaq\Projects\auth-app\auth-app\bin\Microsoft.Owin.Security.Mic
 C:\Users\asif.mushtaq\Projects\auth-app\auth-app\bin\System.Web.Http.Owin.xml
 C:\Users\asif.mushtaq\Projects\auth-app\auth-app\obj\Release\auth-app.dll
 C:\Users\asif.mushtaq\Projects\auth-app\auth-app\obj\Release\auth-app.pdb
+C:\Users\asif.mushtaq\Projects\auth-app\auth-app\obj\Release\auth-app.csprojResolveAssemblyReference.cache

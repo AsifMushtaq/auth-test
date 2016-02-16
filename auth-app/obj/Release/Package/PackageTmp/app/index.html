@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en" >
   <head>
-    <title>Angular Material - Starter App</title>
+    <title>Domain Auth</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,10 +35,11 @@
             </md-toolbar>
 
             <md-list>
-                <md-list-item ng-repeat="it in ul.users">
-                    <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-                        <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-                        {{it.name}}
+                <md-list-item>
+                    <md-button  ui-sref="login"  >
+                        <md-icon md-svg-icon="share" class="avatar"></md-icon>
+                        
+                        Login
                     </md-button>
                 </md-list-item>
             </md-list>
@@ -49,21 +50,14 @@
         <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
             <md-toolbar layout="row" class="md-whiteframe-z1">
-                <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+                <md-button id="main" class="menu selected" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
                     <md-icon md-svg-icon="menu"></md-icon>
                 </md-button>
-                <h3>Angular Material - Starter App</h3>
+                <h3>Domain - Auth 0</h3>
             </md-toolbar>
 
-            <md-content flex id="content">
-                <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
-                <h2>{{ul.selected.name}}</h2>
-                <p>{{ul.selected.content}}</p>
-
-                <md-button class="contact" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
-                    <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
-                    <md-icon md-svg-icon="share"></md-icon>
-                </md-button>
+            <md-content flex id="content" ui-view>
+                
             </md-content>
 
         </div>
@@ -72,34 +66,51 @@
         <script src="assets/angular.js"></script>
         <script src="assets/angular-animate.js"></script>
         <script src="assets/angular-aria.js"></script>
+        <script src="assets/angular-ui-router.js"></script>
         <script type="text/javascript" src="assets/angular-material.js"></script>
 
         <script src="./src/users/Users.js"></script>
         <script src="./src/users/UserController.js"></script>
         <script src="./src/users/UserService.js"></script>
+        <script src="./src/login/login.js"></script>
+        <script src="./src/user/user.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+        <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
 
         <script type="text/javascript">
-            var myFirebaseRef = new Firebase("https://domain-auth.firebaseio.com/");
-            myFirebaseRef.set({
-                title: "Hello World!",
-                author: "Firebase",
-                location: {
-                    city: "San Francisco",
-                    state: "California",
-                    zip: 94103
-                }
-            });
+            //var myFirebaseRef = new Firebase("https://domain-auth.firebaseio.com/");
+            ////myFirebaseRef.set({
+            ////    title: "Hello World!",
+            ////    author: "Firebase",
+            ////    location: {
+            ////        city: "San Francisco",
+            ////        state: "California",
+            ////        zip: 94103
+            ////    }
+            ////});
 
-            myFirebaseRef.child("domain-auth/verification_key").on("value", function (snapshot) {
-                alert(snapshot.val());  // Alerts "San Francisco"
-            });
+            //myFirebaseRef.child("verify/verification_key").on("value", function (snapshot) {
+            //    alert(snapshot.val());  // Alerts "San Francisco"
+            //});
 
 
             angular
-                .module('starterApp', ['ngMaterial', 'users'])
-                .config(function($mdThemingProvider, $mdIconProvider) {
-                    
+                .module('starterApp', ['ngMaterial', 'users', 'firebase', 'angular-storage', 'ui.router'])
+                .config(function ($mdThemingProvider, $mdIconProvider, $stateProvider, $urlRouterProvider) {
+
+                    $urlRouterProvider.otherwise("/login");
+
+                    $stateProvider
+                        .state('login', {
+                            url: "/login",
+                            templateUrl: "./src/login/login.html"
+                        })
+                        .state('user', {
+                            url: "/user",
+                            templateUrl: "./src/user/user.html"
+                        });
+                     
 
                     $mdIconProvider
                         .defaultIconSet("./assets/svg/avatars.svg", 128)
@@ -110,9 +121,10 @@
                         .icon("twitter", "./assets/svg/twitter.svg", 512)
                         .icon("phone", "./assets/svg/phone.svg", 512);
 
+               
                     $mdThemingProvider.theme('default')
-                        .primaryPalette('brown')
-                        .accentPalette('red');
+                        .primaryPalette('green');
+                    //.accentPalette('red');
 
                 });
 

@@ -175,3 +175,4 @@ C:\Users\AsifM\Dropbox\Projects\Domain\auth-app-2\auth-test\auth-app\bin\System.
 C:\Users\AsifM\Dropbox\Projects\Domain\auth-app-2\auth-test\auth-app\obj\Debug\auth-app.csprojResolveAssemblyReference.cache
 C:\Users\AsifM\Dropbox\Projects\Domain\auth-app-2\auth-test\auth-app\obj\Debug\auth-app.dll
 C:\Users\AsifM\Dropbox\Projects\Domain\auth-app-2\auth-test\auth-app\obj\Debug\auth-app.pdb
+C:\Users\asif.mushtaq\Projects\auth-app\auth-app\obj\Debug\auth-app.csprojResolveAssemblyReference.cache
